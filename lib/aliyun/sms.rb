@@ -35,12 +35,14 @@ module Aliyun
       end
 
       def create_params(mobile_num, template_code, message_param)
-        sms_params ={
+        sms_params = {
           'AccessKeyId' => configuration.access_key_id,
           'Action' => configuration.action,
           'Format' => configuration.format,
-          'ParamString' => message_param,
-          'RecNum' => mobile_num,
+          # 'ParamString' => message_param,
+          'TemplateParam' => message_param,
+          # 'RecNum' => mobile_num,
+          'PhoneNumbers' => mobile_num,
           'RegionId' => configuration.region_id,
           'SignName' => configuration.sign_name,
           'SignatureMethod' => configuration.signature_method,
